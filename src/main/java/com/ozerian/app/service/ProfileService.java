@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProfileService {
 
-    Profile addProfile(Profile profile);
+    Profile saveProfile(Profile profile);
 
     void deleteProfile(Long id);
 

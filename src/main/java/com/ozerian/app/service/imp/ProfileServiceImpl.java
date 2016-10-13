@@ -19,7 +19,7 @@ public class ProfileServiceImpl implements ProfileService {
     private ProfileRepository profileRepository;
 
     @Override
-    public Profile addProfile(Profile profile) {
+    public Profile saveProfile(Profile profile) {
         profileRepository.save(profile);
         return profile;
     }
