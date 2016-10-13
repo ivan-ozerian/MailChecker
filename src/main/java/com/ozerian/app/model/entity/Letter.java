@@ -11,7 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import java.util.Date;
 
-
+/**
+ * Class for representation of Letter (email message) entity.
+ */
 @Entity
 @Table(name = "letters")
 public class Letter {
