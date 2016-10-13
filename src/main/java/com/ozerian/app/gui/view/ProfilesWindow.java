@@ -10,6 +10,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
+/**
+ * Main window with profile's table, and input fields for new profile creation.
+ */
 @Component
 public class ProfilesWindow extends JFrame {
     private JTable profilesTable;
@@ -23,6 +26,10 @@ public class ProfilesWindow extends JFrame {
 
     private ProfileService profileService;
 
+    /**
+     * Constructor for ProfileWindow (main menu) with init of
+     * all panel's components.
+     */
     public ProfilesWindow() {
         super("Profiles for email check");
         addNewProfileButton.addActionListener((e) -> {
@@ -59,6 +66,10 @@ public class ProfilesWindow extends JFrame {
         });
     }
 
+    /**
+     * Method handle input data from text filds and create new profile
+     * after click button.
+     */
     private void addProfile() {
         Profile profile = new Profile();
         profile.setEmail(emailTextField.getText());
@@ -66,25 +77,32 @@ public class ProfilesWindow extends JFrame {
         profile.setPort(portTextField.getText());
         profile.setAttachmentStorePath(pathTextField.getText());
 
-        profileService.addProfile(profile);
+        profileService.saveProfile(profile);
     }
 
+    /**
+     * This method get all profile from database through ProfileService and
+     * shows all profile on existing Jtable on main window.
+     */
     private void showAllProfiles() {
         List<Profile> profiles = profileService.getAllProfiles();
         ProfilesTableModel model = new ProfilesTableModel(profiles);
         profilesTable.setModel(model);
     }
 
-    @Autowired
-    public void setProfileService(ProfileService profileService) {
-        this.profileService = profileService;
-    }
-
+    /**
+     * Init method for launch of main menu window.
+     */
     public void init() {
         setContentPane(rootPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setVisible(true);
+    }
+
+    @Autowired
+    public void setProfileService(ProfileService profileService) {
+        this.profileService = profileService;
     }
 
 }
