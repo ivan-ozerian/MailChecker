@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface LetterService {
 
-    Letter addLetter(Letter letter);
+    Letter saveLetter(Letter letter);
 
     void deleteLetter(Long id);
 

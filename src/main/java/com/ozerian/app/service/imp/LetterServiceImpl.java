@@ -18,7 +18,7 @@ public class LetterServiceImpl implements LetterService {
     private LetterRepository letterRepository;
 
     @Override
-    public Letter addLetter(Letter letter) {
+    public Letter saveLetter(Letter letter) {
         letterRepository.save(letter);
         return letter;
     }
