@@ -20,6 +20,7 @@ public class Application {
                 .headless(false)
                 .web(false)
                 .run(args);
+
         // get bean of main frame controller for swing+spring boot application launch.
         ProfilesWindowController controller = context.getBean(ProfilesWindowController.class);
         controller.prepareAndOpenFrame();
