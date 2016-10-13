@@ -116,7 +116,7 @@ public class MailCheckExecutor {
      * (connectAndCheckMail()) and iterate through each letter with cheking on it's
      * contain.
      *
-     * @param profile  Profile of an email acount.
+     * @param profile  Profile of an email account.
      * @param messages Message[] array with new received messages.
      * @throws MessagingException
      * @throws IOException
