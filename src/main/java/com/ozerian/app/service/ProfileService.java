@@ -8,8 +8,6 @@ public interface ProfileService {
 
     Profile saveProfile(Profile profile);
 
-    void deleteProfile(Long id);
-
     List<Profile> getAllProfiles();
 
 }
