@@ -29,12 +29,6 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public void deleteProfile(Long id) {
-        profileRepository.delete(id);
-        LOGGER.debug("deleteProfile() service method was called and execute success");
-    }
-
-    @Override
     public List<Profile> getAllProfiles() {
         List<Profile> profiles = (List<Profile>) profileRepository.findAll();
         LOGGER.debug("getAllProfiles() service method was called and execute success");

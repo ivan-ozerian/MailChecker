@@ -28,12 +28,6 @@ public class LetterServiceImpl implements LetterService {
     }
 
     @Override
-    public void deleteLetter(Long id) {
-        letterRepository.delete(id);
-        LOGGER.debug("deleteLetter() service method was called and execute success");
-    }
-
-    @Override
     public List<Letter> getAllLetters() {
         List<Letter> letters = (List<Letter>) letterRepository.findAll();
         LOGGER.debug("getAllLetter() service method was called and execute success");
