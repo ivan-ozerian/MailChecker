@@ -1,6 +1,6 @@
 package com.ozerian.app.gui.view;
 
-import com.ozerian.app.entity.Profile;
+import com.ozerian.app.model.entity.Profile;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
