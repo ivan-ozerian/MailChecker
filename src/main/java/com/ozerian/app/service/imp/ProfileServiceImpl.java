@@ -1,6 +1,6 @@
 package com.ozerian.app.service.imp;
 
-import com.ozerian.app.entity.Profile;
+import com.ozerian.app.model.entity.Profile;
 import com.ozerian.app.repository.ProfileRepository;
 import com.ozerian.app.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;

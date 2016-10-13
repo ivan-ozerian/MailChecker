@@ -1,6 +1,6 @@
 package com.ozerian.app.service.imp;
 
-import com.ozerian.app.entity.Letter;
+import com.ozerian.app.model.entity.Letter;
 import com.ozerian.app.repository.LetterRepository;
 import com.ozerian.app.service.LetterService;
 import org.springframework.beans.factory.annotation.Autowired;

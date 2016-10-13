@@ -1,6 +1,6 @@
 package com.ozerian.app.service;
 
-import com.ozerian.app.entity.Letter;
+import com.ozerian.app.model.entity.Letter;
 
 import java.util.List;
 

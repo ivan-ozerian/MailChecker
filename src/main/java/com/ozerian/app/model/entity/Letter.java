@@ -1,4 +1,4 @@
-package com.ozerian.app.entity;
+package com.ozerian.app.model.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
