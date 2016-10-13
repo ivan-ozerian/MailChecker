@@ -1,22 +1,27 @@
 package com.ozerian.app.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
-import javax.persistence.GenerationType;
 
 @Entity
 @Table(name = "profiles")
 public class Profile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private Long id;
 
     @Column(name = "mail")
-    private String mailAdress;
+    private String email;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "port")
     private String port;
@@ -27,8 +32,8 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(String mailAdress, String port, String attachmentStorePath) {
-        this.mailAdress = mailAdress;
+    public Profile(String email, String port, String attachmentStorePath) {
+        this.email = email;
         this.port = port;
         this.attachmentStorePath = attachmentStorePath;
     }
@@ -41,12 +46,20 @@ public class Profile {
         this.id = id;
     }
 
-    public String getMailAdress() {
-        return mailAdress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMailAdress(String mailAdress) {
-        this.mailAdress = mailAdress;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPort() {
@@ -73,7 +86,7 @@ public class Profile {
         Profile profile = (Profile) o;
 
         if (id != null ? !id.equals(profile.id) : profile.id != null) return false;
-        if (mailAdress != null ? !mailAdress.equals(profile.mailAdress) : profile.mailAdress != null) return false;
+        if (email != null ? !email.equals(profile.email) : profile.email != null) return false;
         if (port != null ? !port.equals(profile.port) : profile.port != null) return false;
         return attachmentStorePath != null ? attachmentStorePath.equals(profile.attachmentStorePath) : profile.attachmentStorePath == null;
 
@@ -82,7 +95,7 @@ public class Profile {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (mailAdress != null ? mailAdress.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (port != null ? port.hashCode() : 0);
         result = 31 * result + (attachmentStorePath != null ? attachmentStorePath.hashCode() : 0);
         return result;
