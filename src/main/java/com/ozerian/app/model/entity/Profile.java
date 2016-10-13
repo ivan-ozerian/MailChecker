@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
 
+/**
+ * Class for representation of Profile entity.
+ */
 @Entity
 @Table(name = "profiles")
 public class Profile {
