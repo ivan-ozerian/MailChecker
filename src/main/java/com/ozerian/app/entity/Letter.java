@@ -1,5 +1,7 @@
 package com.ozerian.app.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,7 +9,6 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
-import javax.persistence.GenerationType;
 import java.util.Date;
 
 
@@ -16,7 +17,8 @@ import java.util.Date;
 public class Letter {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private Long id;
 
     @Column(name = "sender")
@@ -30,6 +32,9 @@ public class Letter {
 
     @Column(name = "sentDate")
     private Date letterDate;
+
+    @Column(name = "attachments")
+    private String path;
 
     @ManyToOne
     @JoinColumn(name = "profile_id")
@@ -86,6 +91,22 @@ public class Letter {
         this.letterDate = letterDate;
     }
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,6 +120,7 @@ public class Letter {
         if (letterContent != null ? !letterContent.equals(letter.letterContent) : letter.letterContent != null)
             return false;
         if (letterDate != null ? !letterDate.equals(letter.letterDate) : letter.letterDate != null) return false;
+        if (path != null ? !path.equals(letter.path) : letter.path != null) return false;
         return profile != null ? profile.equals(letter.profile) : letter.profile == null;
 
     }
@@ -110,6 +132,7 @@ public class Letter {
         result = 31 * result + (subject != null ? subject.hashCode() : 0);
         result = 31 * result + (letterContent != null ? letterContent.hashCode() : 0);
         result = 31 * result + (letterDate != null ? letterDate.hashCode() : 0);
+        result = 31 * result + (path != null ? path.hashCode() : 0);
         result = 31 * result + (profile != null ? profile.hashCode() : 0);
         return result;
     }
